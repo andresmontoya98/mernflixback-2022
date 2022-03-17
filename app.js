@@ -10,9 +10,11 @@ var bookmarksRouter = require('./routes/bookmarks');
 
 var app = express();
 
+require('dotenv').config();
+
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb+srv://Andresrock98:Colombia1998@clustercursomern.mqt9m.mongodb.net/mernflix?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.DB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() =>  console.log('mymerndb connection successful'))
     .catch((err) => console.error(err));
 
