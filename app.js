@@ -10,15 +10,15 @@ var bookmarksRouter = require('./routes/bookmarks');
 
 var app = express();
 
-var bodyParser  = require("body-parser");  
-var cors = require('cors');  
-app.use(cors());  
-app.use(bodyParser.json({limit: '50mb'}));  
-app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
-
-require('dotenv').config();
+var bodyParser  = require("body-parser");   //nuevo
+var cors = require('cors');   //nuevo
+app.use(cors());  //nuevo
+app.use(bodyParser.json({limit: '50mb'}));  //nuevo
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));   //nuevo
 
 var mongoose = require('mongoose');
+
+require('dotenv').config();
 
 mongoose.connect(process.env.DB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() =>  console.log('mymerndb connection successful'))
